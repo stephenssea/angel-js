@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What fictional character I like you are</title>
+    <link rel="stylesheet" href="pinkki.css"
+</head>
+<body>
+    <h1>What  fictional  character  I  like  you  are</h1>
+    <div id="quiz">
+        <h3>Question 1: Choose a season that repesents yourself</h3>
+        <label><input type="radio" name="question1" value="summer">Summer</label>
+        <label><input type="radio" name="question1" value="fall">Fall</label>
+        <label><input type="radio" name="question1" value="winter">Winter</label>
+        <label><input type="radio" name="question1" value="spring">Spring</label>
+
+        <h3>Question 2: What is your ideal partner?</h3>
+        <label><input type="radio" name="question2" value="strong">Strong and independent</label>
+        <label><input type="radio" name="question2" value="peaceful">Peaceful and beautiful</label>
+        <label><input type="radio" name="question2" value="smart">Smart and academic</label>
+        <label><input type="radio" name="question2" value="none">Nothing in mind</label>
+
+        <h3>Question 3: What's your preferred activity?</h3>
+        <label><input type="radio" name="question3" value="reading">Reading and studying</label>
+        <label><input type="radio" name="question3" value="outside">Taking a walk in the nature</label>
+        <label><input type="radio" name="question3" value="art">Enjoying art and literature</label>
+        <label><input type="radio" name="question3" value="stars">Astronomy</label>
+<br>
+        <button onclick="showResult()">See Your Result</button>
+    </div>
+    <div id="result" style="display:none;">
+        <h2>Your character: <span id="man"></span></h2>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
+
+<script>
+    function showResult() {
+    // Get the selected values for each question
+    const q1 = document.querySelector('input[name="question1"]:checked').value;
+    const q2 = document.querySelector('input[name="question2"]:checked').value;
+    const q3 = document.querySelector('input[name="question3"]:checked').value;
+
+    // Determine the result based on the answers
+    let result;
+
+    if (q1 === 'summer' && q2 === 'strong' && q3 === 'outside') {
+        result = "Stephen Maturin";
+    } else if (q1 === 'fall' && q2 === 'peaceful' && q3 === 'reading') {
+        result = "William Stoner";
+    } else if (q1 === 'winter' && q2 === 'smart' && q3 === 'art') {
+        result = "Henry Winter";
+    } else if (q1 === 'spring' && q2 === 'none' && q3 === 'stars') {
+        result = "Horatio Hornblower";
+    } else {
+        result = "Nobody in particular!";
+    }
+
+    // Display the result
+    document.getElementById('man').innerText = result;
+    document.getElementById('quiz').style.display = 'none';
+    document.getElementById('result').style.display = 'block';
+}
+
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Kalam:wght@300;400;700&display=swap');
+    /* General Styles */
+body {
+    background-color: #fff0f5; /* Light pink background */
+    color: #431b29; /* Dark gray text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family:'Times New Roman', Times, serif;
+}
+
+h1, h2 {
+    color: #d87093; /* A deeper pink color for headers */
+    text-align: center;
+    font-family: "Homemade Apple", sans-serif;
+}
+
+h3 {
+    font-weight: lighter;
+    font-family: "Homemade Apple", sans-serif;
+}
+
+#quiz, #result {
+    background-color: #fff; /* White background for content */
+    border: 2px solid #d87093; /* Border with a deeper pink color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+p {
+    margin: 20px 0;
+    font-size: 1.1em;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #d87093; /* Button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff69b4; 
+}
